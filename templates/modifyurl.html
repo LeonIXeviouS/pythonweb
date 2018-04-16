@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block titre %}
+    Modifier
+{% endblock %}
+
+{% block body %}
+    <h1>Modification</h1>
+    <form action="" method="POST">
+        <fieldset>
+            <label for="urlmodify">Url :</label><br/>
+            <input type="text" name="urlmodify" id="urlmodify"/><br/><br/>
+
+            <input type="submit" value="Modifier"/>
+        </fieldset>
+    </form>
+{% endblock %}

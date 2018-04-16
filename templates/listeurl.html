@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+
+{% block titre %}
+    Liste URL
+{% endblock %}
+
+{% block body %}
+	{% if rows is defined %}
+
+		<div class="row">
+    	{% for url in rows %}
+    	
+    		<div class="col s4 m4 l4">
+      			<div class="card blue-grey darken-1">
+        			<div class="card-content white-text">
+          				<span class="card-title">{{ url.1 }}</span>
+          				<p>
+				          	{% if tab[loop.index0] == 200 %}
+				    			Code : {{ tab[loop.index0] }} : ON
+				    		{% else %}
+				    			Code : {{ tab[loop.index0] }} : OFF
+				    		{% endif %}
+          				</p>
+        			</div>
+        			<div class="card-action">
+          				<a href="{{url.0}}">Go to site</a>
+          				<a class="right" href="{{  url_for('modifyurl', id=url.0) }}">Modifier</a>
+          				<a class="right" href="{{  url_for('deleteurl', id=url.0) }}">Supprimer</a>
+          				<a class="right" href="#">Voir fiche</a>
+			        </div>
+			    </div>
+			</div>
+		
+
+    		
+
+    	{% endfor %}
+    	</div>
+
+    {% endif %}
+{% endblock %}
